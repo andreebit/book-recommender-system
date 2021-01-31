@@ -26,5 +26,6 @@ def get_by_id(book_id):
                     'author': row['author'],
                     'description': row['Desc']
                 }
+                break
     
     return book

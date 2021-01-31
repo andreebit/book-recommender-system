@@ -2,6 +2,11 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from gensim.models import Word2Vec
 from utils import string_cleaner
+import logging
+from flask import Flask
+
+app = Flask(__name__)
+app.logger.setLevel(logging.INFO)
 
 EMBEDDING_FILE = 'trained/books.model'
 BOOKS_CSV_FILE = 'data/books.csv'
@@ -47,22 +52,26 @@ def recommendations(title):
     vectors(df)
     
     # finding cosine similarity for the vectors
-
     cosine_similarities = cosine_similarity(word_embeddings, word_embeddings)
 
     # taking the title and book image link and store in new data frame called books
     books = df[['id', 'title', 'genre', 'author', 'image_link']]
+
     #Reverse mapping of the index
     indices = pd.Series(df.index, index = df['title']).drop_duplicates()
 
     idx = indices[title]
     sim_scores = list(enumerate(cosine_similarities[idx]))
     sim_scores = sorted(sim_scores, key = lambda x: x[1], reverse = True)
-    sim_scores = sim_scores[1:11]
+    sim_scores = sim_scores[1:11]    
     book_indices = [i[0] for i in sim_scores]
-    recommend = books.iloc[book_indices]
+    scores = [i[1] for i in sim_scores]
+    recommend = books.iloc[book_indices]    
     items = []
+    scoreIndex = 0
     for index, row in recommend.iterrows():
-        items.append({'id': row['id'], 'title': row['title'], 'genre': row['genre'], 'author': row['author'], 'image_link': row['image_link']})
+        if title != row['title']:
+            items.append({'id': row['id'], 'title': row['title'], 'genre': row['genre'], 'author': row['author'], 'image_link': row['image_link'], 'score': str(scores[scoreIndex])})
+        scoreIndex = scoreIndex + 1
 
     return items
