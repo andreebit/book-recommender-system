@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'UPC - Exígete, innova!'
+    return jsonify(data={'university': 'UPC - Exígete, innova!', 'course': 'Inteligencia Artificial'})
 
 
 @app.route('/books')
