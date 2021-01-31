@@ -48,7 +48,6 @@ def vectors(x):
 def recommendations(title):
     
     # Calling the function vectors
-
     vectors(df)
     
     # finding cosine similarity for the vectors
