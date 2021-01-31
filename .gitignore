@@ -1,0 +1,5 @@
+code/__pycache__
+code/trained/GoogleNews-vectors-negative300.bin.gz
+code/books.model
+code/models/__pycache__
+code/utils/__pycache__

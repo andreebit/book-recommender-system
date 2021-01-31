@@ -1,0 +1,1 @@
+Es necesario descargar GoogleNews-vectors-negative300.bin.gz y colocarlo en la carpeta trained antes de entrenar el modelo
