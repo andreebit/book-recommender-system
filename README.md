@@ -9,7 +9,7 @@ git clone https://github.com/andreebit/book-recommender-system.git
 `
 ___
 ## Inicializar ##
-Ejecutar el comando:  
+En la raiz del proyecto, ejecutar el comando:  
 `
 docker compose up -d
 `
