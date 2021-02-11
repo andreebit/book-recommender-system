@@ -14,7 +14,7 @@ En la raiz del proyecto, ejecutar el comando:
 docker compose up -d
 `
 ___
-## Acceder al contenedor ##
+## Acceder al contenedor ___(opcional)___ ##
 Ejecutar el comando:  
 `
 docker exec -it ia_api_1 bash
@@ -26,7 +26,7 @@ ___
 
 Para entrenar el modelo, es necesario descargar previamente el archivo [GoogleNews-vectors-negative300.bin.gz](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing) y colocarlo en la carpeta `code/trained`.
 
-Con el archivo descargado, accedemos al contenedor y ejecutamos el comando:  
+Con el archivo descargado, __accedemos al contenedor__ y ejecutamos el comando:  
 
 `
 python3 utils/model_builder.py
