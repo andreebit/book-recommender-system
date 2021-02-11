@@ -4,21 +4,21 @@
 ___
 ## Clonar el repositorio ##
 Ejecutar el comando:  
-`
+```
 git clone https://github.com/andreebit/book-recommender-system.git
-`
+```
 ___
 ## Inicializar ##
 En la raiz del proyecto, ejecutar el comando:  
-`
+```
 docker compose up -d
-`
+```
 ___
 ## Acceder al contenedor ___(opcional)___ ##
 Ejecutar el comando:  
-`
+```
 docker exec -it ia_api_1 bash
-`
+```
 ___
 ## Entrenar el modelo ##
 
@@ -28,9 +28,9 @@ Para entrenar el modelo, es necesario descargar previamente el archivo [GoogleNe
 
 Con el archivo descargado, __accedemos al contenedor__ y ejecutamos el comando:  
 
-`
+```
 python3 utils/model_builder.py
-`
+```
 ___
 ## Probar el sistema ##
 Cuando el contenedor se haya cargado correctamente, podemos empezar con las pruebas del sistema de recomendación.  
@@ -38,16 +38,16 @@ Cuando el contenedor se haya cargado correctamente, podemos empezar con las prue
 El sistema cuenta con __3__ ___endpoints___ que pueden ser consultados:
 
 ### 1.- Listado de libros ###
-`
+```
 http://localhost:5000/books
-`
+```
 ### 2.- Detalle de libro ###
-`
+```
 http://localhost:5000/books/{bookId}
-`
+```
 ### 3.- Listado de libros recomendados en base a un libro ###
-`
+```
 http://localhost:5000/books/{bookId}/recommendations
-`
+```
 
 > ___{bookId}___ es cualquier id de libro obtenido del endpoint de __Listado de libros__
