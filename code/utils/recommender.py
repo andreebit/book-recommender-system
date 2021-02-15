@@ -16,10 +16,10 @@ model = Word2Vec.load(EMBEDDING_FILE)
 df = pd.read_csv(BOOKS_CSV_FILE)
 df['Desc'] = df['Desc'].astype(str)
 df['cleaned'] = df['Desc'].apply(string_cleaner._removeNonAscii)
-df['cleaned'] = df.cleaned.apply(func = string_cleaner.make_lower_case)
-df['cleaned'] = df.cleaned.apply(func = string_cleaner.remove_stop_words)
-df['cleaned'] = df.cleaned.apply(func = string_cleaner.remove_punctuation)
-df['cleaned'] = df.cleaned.apply(func = string_cleaner.remove_html)
+df['cleaned'] = df.cleaned.apply(func=string_cleaner.make_lower_case)
+df['cleaned'] = df.cleaned.apply(func=string_cleaner.remove_stop_words)
+df['cleaned'] = df.cleaned.apply(func=string_cleaner.remove_punctuation)
+df['cleaned'] = df.cleaned.apply(func=string_cleaner.remove_html)
 
 def vectors(x):
     
