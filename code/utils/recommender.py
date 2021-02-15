@@ -50,13 +50,13 @@ def recommendations(title):
     # Calling the function vectors
     vectors(df)
     
-    # finding cosine similarity for the vectors
+    # Finding cosine similarity for the vectors
     cosine_similarities = cosine_similarity(word_embeddings, word_embeddings)
 
-    # taking the data from the books and store in new data frame called books
+    # Taking the data from the books and store in new data frame called books
     books = df[['id', 'title', 'genre', 'author', 'image_link']]
 
-    #Reverse mapping of the index
+    # Reverse mapping of the index
     indices = pd.Series(data=df.index, index=df['title']).drop_duplicates()
 
     idx = indices[title]
